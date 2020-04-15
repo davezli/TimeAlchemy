@@ -38,6 +38,7 @@ function finishSelectPrices() {
     Object.keys(priceList).forEach(material => {
         if (material === 'Meso') {
             priceList[material] = 1;
+            return;
         }
         const materialIdx = material.replace(/\W/g, '');
         const fieldDom = $(`#itemPrice${materialIdx}`);
@@ -55,6 +56,5 @@ function finishSelectPrices() {
         return;
     }
 
-    console.log(JSON.stringify(priceList));
     nextStep('#select-prices-container')
 }

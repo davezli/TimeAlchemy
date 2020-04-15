@@ -57,7 +57,7 @@ function getReverseCraftOrder(itemNode, buyMap, craftMap) {
             quantity: quantity + (craftMap[item]?.quantity || 0),
             cost: cost + (craftMap[item]?.cost || 0)
         };
-        
+
         Object.values(itemNode.children).forEach(child => {
             getReverseCraftOrder(child, buyMap, craftMap)
         });
