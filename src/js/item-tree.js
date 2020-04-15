@@ -54,9 +54,11 @@ function getReverseCraftOrder(itemNode, buyMap, craftMap) {
     const cost = itemNode.acquisitionCost;
 
     if (itemNode.acquisitionMode === AcquisitionMode.CRAFT) {
+
+
         craftMap[item] = {
-            quantity: quantity + (craftMap[item]?.quantity || 0),
-            cost: cost + (craftMap[item]?.cost || 0)
+            quantity: quantity + (craftMap[item] ? craftMap[item].quantity : 0),
+            cost: cost + (craftMap[item] ? craftMap[item].cost : 0)
         };
 
         Object.values(itemNode.children).forEach(child => {
@@ -64,8 +66,8 @@ function getReverseCraftOrder(itemNode, buyMap, craftMap) {
         });
     } else if (itemNode.acquisitionMode === AcquisitionMode.BUY) {
         buyMap[item] = {
-            quantity: quantity + (buyMap[item]?.quantity || 0),
-            cost: cost + (buyMap[item]?.cost || 0)
+            quantity: quantity + (buyMap[item] ? buyMap[item].quantity : 0),
+            cost: cost +  (buyMap[item] ? buyMap[item].cost : 0)
         };
     }
 }
