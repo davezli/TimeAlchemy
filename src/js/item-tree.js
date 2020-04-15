@@ -1,9 +1,10 @@
 class ItemNode {
-    item;
-    quantity;
-    children;
-    acquisitionMode;
-    acquisitionCost;
+    // Class Fields are not supported in all browsers - commenting out
+    // item;
+    // quantity;
+    // children;
+    // acquisitionMode;
+    // acquisitionCost;
 
     constructor(item, quantity) {
         this.item = item;
