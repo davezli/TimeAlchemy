@@ -47,30 +47,39 @@ function getItemTree(item, quantity, priceList) {
     return node;
 }
 
-// Map instead of Object for insertion order
-// Outputs to BuyMap, CraftMap
 function getReverseCraftOrder(itemNode, buyMap, craftMap) {
     const item = itemNode.item;
     const quantity = itemNode.quantity;
     const cost = itemNode.acquisitionCost;
 
     if (itemNode.acquisitionMode === AcquisitionMode.CRAFT) {
-        craftMap.set(item,
-            {
-                quantity: quantity + (craftMap.get(item)?.quantity || 0),
-                cost: cost + (craftMap.get(item)?.cost || 0)
-            });
+        craftMap[item] = {
+            quantity: quantity + (craftMap[item]?.quantity || 0),
+            cost: cost + (craftMap[item]?.cost || 0)
+        };
+        
+        Object.values(itemNode.children).forEach(child => {
+            getReverseCraftOrder(child, buyMap, craftMap)
+        });
     } else if (itemNode.acquisitionMode === AcquisitionMode.BUY) {
-        buyMap.set(item,
-            {
-                quantity: quantity + (buyMap.get(item)?.quantity || 0),
-                cost: cost + (buyMap.get(item)?.cost || 0)
-            });
+        buyMap[item] = {
+            quantity: quantity + (buyMap[item]?.quantity || 0),
+            cost: cost + (buyMap[item]?.cost || 0)
+        };
     }
+}
 
+function getKeysFromTree(itemNode) {
+    let keys = {};
+    keys[itemNode.item] = true;
     Object.values(itemNode.children).forEach(child => {
-        getReverseCraftOrder(child, buyMap, craftMap)
+        keys = {
+            ...keys,
+            ...getKeysFromTree(child)
+        };
     });
+
+    return keys;
 }
 
 // Used for Debugging

@@ -7,6 +7,9 @@ function nextStep(currentStepId) {
         case "#select-items-container":
             loadItems();
             break;
+        case '#select-prices-container':
+            loadPrices();
+            break;
         case "#crafting-steps-container":
             populateCraftingSteps();
             break;
@@ -18,7 +21,7 @@ function nextStep(currentStepId) {
 }
 
 // Global Variables
-const stepList = [ '#select-items-container', '#crafting-steps-container' ];
+const stepList = [ '#select-items-container', '#select-prices-container', '#crafting-steps-container' ];
 let itemsToCraft = {};
 let priceList = defaultPrices;
 

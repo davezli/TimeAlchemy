@@ -19,7 +19,8 @@
 
     <!-- Each Container has its own JS file -->
     <script src="src/js/1-select-items.js"></script>
-    <script src="src/js/2-crafting-steps.js"></script>
+    <script src="src/js/2-select-prices.js"></script>
+    <script src="src/js/3-crafting-steps.js"></script>
 </head>
 
 <body>
@@ -42,6 +43,28 @@
         </script>
     </div>
 
+    <div id="selected-items-container" class="container col-md-9" style="display: none;">
+        <h2>Selected Items</h2>
+        <div id="select-list" class="list-group"></div>
+    </div>
+
+    <div id="select-prices-container" class="container wizard col-md-9" style="display: none;">
+        <h2>Enter prices for the base materials</h2>
+        <p>This will affect whether you craft / buy intermediate materials.</p>
+        <p>Default prices were last updated on:
+            <span id="prices-last-update-date"></span>
+        </p>
+        <form id="select-prices-form" class="form-horizontal">
+            <div id="select-prices-form-options"></div>
+            <div class="form-row">
+                <div class="col-md-9">
+                    <button id="select-prices-next-btn" type="button"
+                            class="btn btn-primary float-right" onclick="finishSelectPrices()">Next >></button>
+                </div>
+            </div>
+        </form>
+    </div>
+
     <div id="crafting-steps-container" class="container wizard col-md-9" style="display: none;">
         <h2>Crafting Steps:</h2>
 
@@ -51,6 +74,8 @@
         <h3>Craft List</h3>
         <div id="craft-list" class="list-group"></div>
 
+        <h3>Total Cost</h3>
+        <div id="total-cost"></div>
     </div>
     <!-- Bootstrap core JavaScript
     ================================================== -->

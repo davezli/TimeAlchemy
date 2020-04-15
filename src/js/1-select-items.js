@@ -28,6 +28,8 @@ function loadItems() {
                     `
         );
     }
+
+    $("#selected-items-container").hide();
 }
 
 function finishSelectItems() {
@@ -61,10 +63,24 @@ function finishSelectItems() {
         return;
     }
 
-    $('.wizard').hide();
-    $('#price-check-container').show();
-
     itemsToCraft = desiredItems;
     nextStep('#select-items-container')
 
+    const selectList = $('#select-list');
+
+    while(selectList.firstChild) {
+        selectList.firstChild.remove();
+    }
+
+    Object.keys(itemsToCraft).forEach(item => {
+        const quantity = itemsToCraft[item];
+        selectList.append(`
+            <button type="button" class="list-group-item list-group-item-action" onclick="toggleStrikethrough()">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">${quantity.toLocaleString()} ${item}</h5>
+                </div>
+            </a>`
+        );
+    });
+    $('#selected-items-container').show();
 }
