@@ -75,7 +75,7 @@ function finishSelectItems() {
     Object.keys(itemsToCraft).forEach(item => {
         const quantity = itemsToCraft[item];
         selectList.append(`
-            <button type="button" class="list-group-item list-group-item-action" onclick="toggleStrikethrough()">
+            <button type="button" class="list-group-item list-group-item-action col-md-9" onclick="toggleStrikethrough()">
                 <div class="d-flex w-100 justify-content-between">
                     <h5 class="mb-1">${quantity.toLocaleString()} ${item}</h5>
                 </div>

@@ -9,9 +9,9 @@ function populateCraftingSteps() {
     let totalCost = 0;
 
     Object.keys(itemsToCraft).forEach(item => {
-      const itemTree = getItemTree(item, itemsToCraft[item], priceList);
+      const itemTree = getItemTree(item, itemsToCraft[item], priceList, inventory);
       totalCost += itemTree.acquisitionCost;
-      getReverseCraftOrder(itemTree, buyMap, craftMap);
+      getReverseCraftOrder(itemTree, buyMap, craftMap, inventory);
     });
 
 
@@ -22,11 +22,11 @@ function populateCraftingSteps() {
         const costEach = cost / quantity;
 
         buyListDiv.append(`
-            <button type="button" class="list-group-item list-group-item-action" onclick="toggleStrikethrough()">
+            <button type="button" class="list-group-item list-group-item-action col-md-9" onclick="toggleStrikethrough()">
                 <div class="d-flex w-100 justify-content-between">
                     <h5 class="mb-1">${quantity.toLocaleString()} ${item}</h5>
                 </div>
-                <p class="mb-1">${costEach.toLocaleString()} mesoes each, for a total of ${cost.toLocaleString()}</p>
+                <p class="mb-1">${costEach.toLocaleString()} mesoes each for a total of ${cost.toLocaleString()}.</p>
             </button>`
         );
     });
@@ -35,7 +35,7 @@ function populateCraftingSteps() {
     Object.keys(craftMap).reverse().forEach(item => {
         const quantity = craftMap[item]['quantity'];
         craftListDiv.append(`
-            <button type="button" class="list-group-item list-group-item-action" onclick="toggleStrikethrough()">
+            <button type="button" class="list-group-item list-group-item-action col-md-9" onclick="toggleStrikethrough()">
                 <div class="d-flex w-100 justify-content-between">
                     <h5 class="mb-1">${quantity.toLocaleString()} ${item}</h5>
                 </div>

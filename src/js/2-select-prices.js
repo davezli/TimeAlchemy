@@ -18,7 +18,7 @@ function loadPrices() {
         $('#select-prices-form-options').append(`
             <div class="form-row">
                 <div class="form-group col-md-9">
-                    <label for="itemPrice${materialIdx}">Price for ${material}</label>
+                    <label for="itemPrice${materialIdx}"><b>${material}</b> price:</label>
                     <input type="number" class="form-control"
                         id="itemPrice${materialIdx}" value="${defaultPrices[material]}">
                     <div class="invalid-feedback">

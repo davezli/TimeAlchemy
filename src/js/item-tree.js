@@ -15,14 +15,26 @@ class ItemNode {
 
 const AcquisitionMode = {
     BUY: 'Buy',
-    CRAFT: 'Craft'
+    CRAFT: 'Craft',
+    INVENTORY: 'Inventory'
 };
 
-function getItemTree(item, quantity, priceList) {
+function getItemTree(item, quantity, priceList, inventory) {
     const node = new ItemNode(item, quantity);
 
-    const shouldCalcPrices = (priceList !== undefined);
+    if (inventory && inventory[item]) {
+        if (inventory[item] >= quantity) {
+            inventory[item] -= quantity;
+            node.acquisitionMode = AcquisitionMode.INVENTORY;
+            node.acquisitionCost = 0;
+            return node;
+        } else {
+            quantity -= inventory[item];
+            inventory[item] = undefined;
+        }
+    }
 
+    const shouldCalcPrices = (priceList !== undefined);
     if (shouldCalcPrices && priceList[item]) {
         node.acquisitionMode = AcquisitionMode.BUY;
         node.acquisitionCost = priceList[item] * quantity;
@@ -33,7 +45,7 @@ function getItemTree(item, quantity, priceList) {
 
         Object.keys(recipes[item]).forEach((material) => {
             const materialQuantity = recipes[item][material] * quantity;
-            const materialNode = getItemTree(material, materialQuantity, priceList);
+            const materialNode = getItemTree(material, materialQuantity, priceList, inventory);
             node.children[material] = materialNode;
 
             craftingCost += materialNode.acquisitionCost;
@@ -54,8 +66,6 @@ function getReverseCraftOrder(itemNode, buyMap, craftMap) {
     const cost = itemNode.acquisitionCost;
 
     if (itemNode.acquisitionMode === AcquisitionMode.CRAFT) {
-
-
         craftMap[item] = {
             quantity: quantity + (craftMap[item] ? craftMap[item].quantity : 0),
             cost: cost + (craftMap[item] ? craftMap[item].cost : 0)
