@@ -28,7 +28,7 @@ const defaultPrices = {
   "Droplet of Strength": 23333333,
   "Mana Shard": 36666666,
   "Time Sand": 36111111,
-  "Stamina Potion": 17555500,
+  "Stamina Elixir": 17555500,
   "Life Essence": 160000000,
   "Wind Crystal": 148888888,
   "Dark Soul Stone": 177777777,

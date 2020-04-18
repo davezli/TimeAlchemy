@@ -29,7 +29,7 @@ const recipes = {
     "Twisted Time": 50,
     "Piece of Time": 10
   },
-  "Stamina Potion": {
+  "Stamina Elixir": {
     "Herb Root": 12,
     "Elixir of Purity": 1,
     "Black Scroll (Level 1)": 1,
@@ -138,8 +138,8 @@ const recipes = {
     "Brilliant Dusk Essence": 1,
     "Black Scroll (Level 3)": 1
   },
-  "Angel Charm": {
-    "Stamina Potion": 4,
+  "Angel Figurine": {
+    "Stamina Elixir": 4,
     "Life Essence": 1,
     "Elixir of Purity": 2,
     "Lidium": 6,
