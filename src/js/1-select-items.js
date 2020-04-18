@@ -7,7 +7,7 @@ function loadItems() {
     for (let i = 1; i < 7; i++) {
         $('#select-items-form-options').append(`
                     <div class="form-row">
-                        <div class="form-group col-md-7">
+                        <div class="form-group col-md-9">
                             <label for="itemName${i}">Item ${i}</label>
                             <select id="itemName${i}" class="form-control">
                                 <option selected>Choose...</option>
@@ -17,7 +17,7 @@ function loadItems() {
                             Please select at least one item.
                             </div>
                         </div>
-                        <div class="form-group col-md-2">
+                        <div class="form-group col-md-3">
                             <label for="itemQuantity${i}">Quantity for Item ${i}</label>
                             <input type="number" class="form-control" id="itemQuantity${i}">
                             <div class="invalid-feedback">
@@ -75,7 +75,7 @@ function finishSelectItems() {
     Object.keys(itemsToCraft).forEach(item => {
         const quantity = itemsToCraft[item];
         selectList.append(`
-            <button type="button" class="list-group-item list-group-item-action col-md-9" onclick="toggleStrikethrough()">
+            <button type="button" class="list-group-item list-group-item-action col-md-12">
                 <div class="d-flex w-100 justify-content-between">
                     <h5 class="mb-1">${quantity.toLocaleString()} ${item}</h5>
                 </div>
