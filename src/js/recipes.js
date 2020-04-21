@@ -69,7 +69,8 @@ const recipes = {
     "Mana Shard": 2,
     "Time Sand": 2,
     "Elixir of Purity": 2,
-    "Black Scroll (Level 2)": 1
+    "Black Scroll (Level 2)": 1,
+    "White Crystal": 1
   },
   "Piece of Courage": {
     "Power Crystal": 6,
