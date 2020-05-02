@@ -31,6 +31,11 @@
         <span id="title" class="navbar-brand mb-0 h1 text-light">KastiaMS Time Alchemy Crafting Calculator</span>
     </nav>
 
+    <div id="selected-items-container" class="container col-md-6 border border-primary rounded mt-3" style="display: none;">
+        <h2>Selected Items</h2>
+        <div id="select-list" class="list-group"></div>
+    </div>
+
     <div id="select-items-container" class="container wizard col-md-6 border border-primary rounded mt-3">
         <h2>What do you want to craft?</h2>
         <form id="select-items-form" class="form-horizontal">
@@ -38,7 +43,7 @@
             <div class="form-row">
                 <div class="col-md-12">
                     <button id="select-items-next-btn" type="button"
-                            class="btn btn-primary float-right" onclick="finishSelectItems()">Next >></button>
+                            class="btn btn-primary float-right" onclick="finishSelectItems()">Next →</button>
                 </div>
             </div>
         </form>
@@ -46,24 +51,6 @@
         <script type="text/javascript">
             loadItems()
         </script>
-    </div>
-
-    <div id="selected-items-container" class="container col-md-6 border border-primary rounded mt-3" style="display: none;">
-        <h2>Selected Items</h2>
-        <div id="select-list" class="list-group"></div>
-    </div>
-
-    <div id="select-inventory-container" class="container wizard col-md-6 border border-primary rounded mt-3" style="display: none;">
-        <h2>Enter your inventory for the base materials</h2>
-        <form id="select-inventory-form" class="form-horizontal">
-            <div id="select-inventory-form-options"></div>
-            <div class="form-row">
-                <div class="col-md-12">
-                    <button id="select-inventory-next-btn" type="button"
-                            class="btn btn-primary float-right" onclick="finishLoadInventory()">Next >></button>
-                </div>
-            </div>
-        </form>
     </div>
 
     <div id="select-prices-container" class="container wizard col-md-6 border border-primary rounded mt-3" style="display: none;">
@@ -76,8 +63,25 @@
             <div id="select-prices-form-options"></div>
             <div class="form-row">
                 <div class="col-md-12">
+                    <button id="select-prices-prev-btn" type="button"
+                            class="btn btn-outline-secondary float-left" onclick="prevStep('#select-prices-container')">← Prev</button>
                     <button id="select-prices-next-btn" type="button"
-                            class="btn btn-primary float-right" onclick="finishSelectPrices()">Next >></button>
+                            class="btn btn-primary float-right" onclick="finishSelectPrices()">Next →</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div id="select-inventory-container" class="container wizard col-md-6 border border-primary rounded mt-3" style="display: none;">
+        <h2>Enter your inventory for the base materials</h2>
+        <form id="select-inventory-form" class="form-horizontal">
+            <div id="select-inventory-form-options"></div>
+            <div class="form-row">
+                <div class="col-md-12">
+                    <button id="select-inventory-prev-btn" type="button"
+                            class="btn btn-outline-secondary float-left" onclick="prevStep('#select-inventory-container')">← Prev</button>
+                    <button id="select-inventory-next-btn" type="button"
+                            class="btn btn-primary float-right" onclick="finishLoadInventory()">Next →</button>
                 </div>
             </div>
         </form>
@@ -97,6 +101,18 @@
 
         <h3>Total Cost</h3>
         <div id="total-cost"></div>
+        <p></p>
+
+        <form id="crafting-steps-form" class="form-horizontal">
+            <div class="form-row">
+                <div class="col-md-12">
+                    <button id="crafting-steps-prev-btn" type="button"
+                            class="btn btn-outline-secondary float-left" onclick="prevStep('#crafting-steps-container')">← Prev</button>
+                    <button id="crafting-steps-restart-btn" type="button"
+                            class="btn btn-outline-secondary float-right" onclick="window.location.reload();">Restart ↺</button>
+                </div>
+            </div>
+        </form>
     </div>
     <!-- Bootstrap core JavaScript
     ================================================== -->

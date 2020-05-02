@@ -16,6 +16,7 @@ function populateCraftingSteps() {
 
 
     const buyListDiv = $('#buy-list');
+    buyListDiv.empty();
     Object.keys(buyMap).reverse().forEach(item => {
         const quantity = buyMap[item]['quantity'];
         const cost = buyMap[item]['cost'];
@@ -33,6 +34,7 @@ function populateCraftingSteps() {
     });
 
     const craftListDiv = $('#craft-list');
+    craftListDiv.empty();
     Object.keys(craftMap).reverse().forEach(item => {
         const quantity = craftMap[item]['quantity'];
         craftListDiv.append(`
@@ -46,6 +48,7 @@ function populateCraftingSteps() {
     });
 
     const totalCostDiv = $('#total-cost');
+    totalCostDiv.empty();
     totalCostDiv.append(`
         <h4>${totalCost.toLocaleString()} mesoes</h4>
     `);

@@ -10,6 +10,7 @@ function loadPrices() {
         };
     });
 
+    $('#select-prices-form-options').empty();
     Object.keys(keys).forEach(material => {
         if (material === 'Meso') {
             return;

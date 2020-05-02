@@ -64,13 +64,10 @@ function finishSelectItems() {
     }
 
     itemsToCraft = desiredItems;
-    nextStep('#select-items-container')
+    nextStep('#select-items-container');
 
     const selectList = $('#select-list');
-
-    while(selectList.firstChild) {
-        selectList.firstChild.remove();
-    }
+    selectList.empty();
 
     Object.keys(itemsToCraft).forEach(item => {
         const quantity = itemsToCraft[item];

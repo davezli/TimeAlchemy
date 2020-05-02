@@ -9,6 +9,7 @@ function loadInventory() {
         };
     });
 
+    $('#select-inventory-form-options').empty();
     Object.keys(keys).forEach(material => {
         if (material === 'Meso') {
             return;
