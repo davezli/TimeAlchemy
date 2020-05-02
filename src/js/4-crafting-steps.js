@@ -8,10 +8,13 @@ function populateCraftingSteps() {
     const craftMap = {};
     let totalCost = 0;
 
+    // getItemTree and getReverseCraftOrder mutate inventory
+    const inventoryCopy = jQuery.extend(true, {}, inventory);
+
     Object.keys(itemsToCraft).forEach(item => {
-      const itemTree = getItemTree(item, itemsToCraft[item], priceList, inventory);
+      const itemTree = getItemTree(item, itemsToCraft[item], priceList, inventoryCopy);
       totalCost += itemTree.acquisitionCost;
-      getReverseCraftOrder(itemTree, buyMap, craftMap, inventory);
+      getReverseCraftOrder(itemTree, buyMap, craftMap, inventoryCopy);
     });
 
 

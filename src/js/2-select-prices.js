@@ -22,7 +22,7 @@ function loadPrices() {
                     <img src="data:image/jpeg;base64,${icons_enc[material]}" alt="">
                     <label for="itemPrice${materialIdx}"><b>${material}</b> price:</label>
                     <input type="number" class="form-control"
-                        id="itemPrice${materialIdx}" value="${defaultPrices[material]}">
+                        id="itemPrice${materialIdx}" value="${Number.isInteger(priceList[material]) ? priceList[material] : defaultPrices[material]}">
                     <div class="invalid-feedback">
                     Enter a number greater than 0.
                     </div>
