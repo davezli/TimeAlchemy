@@ -17,6 +17,7 @@ function loadInventory() {
         $('#select-inventory-form-options').append(`
             <div class="form-row">
                 <div class="form-group col-md-9">
+                    <img src="data:image/jpeg;base64,${icons_enc[material]}" alt="">
                     <label for="itemInventory${materialIdx}"><b>${material}</b> quantity: </label>
                     <input type="number" class="form-control"
                         id="itemInventory${materialIdx}" value="0">

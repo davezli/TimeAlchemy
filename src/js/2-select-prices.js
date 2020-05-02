@@ -18,6 +18,7 @@ function loadPrices() {
         $('#select-prices-form-options').append(`
             <div class="form-row">
                 <div class="form-group col-md-9">
+                    <img src="data:image/jpeg;base64,${icons_enc[material]}" alt="">
                     <label for="itemPrice${materialIdx}"><b>${material}</b> price:</label>
                     <input type="number" class="form-control"
                         id="itemPrice${materialIdx}" value="${defaultPrices[material]}">

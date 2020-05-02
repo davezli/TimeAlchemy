@@ -23,6 +23,7 @@ function populateCraftingSteps() {
 
         buyListDiv.append(`
             <button type="button" class="list-group-item list-group-item-action col-md-12" onclick="toggleStrikethrough()">
+                <img src="data:image/jpeg;base64,${icons_enc[item]}" alt="">
                 <div class="d-flex w-100 justify-content-between">
                     <h5 class="mb-1">${quantity.toLocaleString()} ${item}</h5>
                 </div>
@@ -36,6 +37,7 @@ function populateCraftingSteps() {
         const quantity = craftMap[item]['quantity'];
         craftListDiv.append(`
             <button type="button" class="list-group-item list-group-item-action col-md-12" onclick="toggleStrikethrough()">
+                <img src="data:image/jpeg;base64,${icons_enc[item]}" alt="">
                 <div class="d-flex w-100 justify-content-between">
                     <h5 class="mb-1">${quantity.toLocaleString()} ${item}</h5>
                 </div>
