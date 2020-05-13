@@ -161,7 +161,8 @@ const recipes = {
     "Primal Essence": 3,
     "Star Rock": 2,
     "Forever Unrelenting Flame": 3,
-    "Black Scroll (Level 3)": 1
+    "Black Scroll (Level 3)": 1,
+    "Star Crystal": 1
   },
   "Moon Stone": {
     "Gold Plate": 10,
